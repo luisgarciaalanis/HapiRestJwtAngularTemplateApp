@@ -1,0 +1,26 @@
+{
+  "name": "hapiresttemplate",
+  "version": "1.0.0",
+  "description": "Hapi framework REST API template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Garcia Alanis",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "bcrypt": "^0.8.7",
+    "boom": "^3.2.1",
+    "gulp": "^3.9.1",
+    "hapi": "^13.4.1",
+    "hapi-auth-jwt2": "^7.0.1",
+    "inert": "^4.0.0",
+    "joi": "^8.4.2",
+    "jsonwebtoken": "^7.0.0",
+    "mysql": "^2.11.1",
+    "node-env-file": "^0.1.8",
+    "sequelize": "^3.23.3",
+    "sequelize-cli": "^2.4.0"
+  }
+}

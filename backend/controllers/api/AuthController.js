@@ -13,7 +13,7 @@ class AuthController extends BaseController
         this.appAccessToken = null;
     }
 
-    /***
+    /**
      * Handles the login request, returning the JWT if successful
      *
      * @param request
@@ -40,6 +40,7 @@ class AuthController extends BaseController
         SessionManager.logout(request.auth.credentials.id);
         reply();
     }
+    
     /**
      * Called to renew to JWT
      *

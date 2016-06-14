@@ -69,25 +69,22 @@ class SessionManager {
      * @returns {*|promise}
      */
     login(email, password) {
-        var deferred = q.defer();
-
-        User.findByEmail(email).then(
-            (result) => {
-                let user = result.get({ plain:true });
-
-                if (this.generatePasswordHash(password, user.salt) === user.password) {
-                    let token = this.generateToken(user.id);
-                    this.newSession(user.id, token);
-                    deferred.resolve(token);
-                } else {
-                    deferred.reject();
+        return new Promise((resolve, reject) => {
+            User.findByEmail(email).then(
+                (result) => {
+                    let user = result.get({ plain:true });
+                    if (this.generatePasswordHash(password, user.salt) === user.password) {
+                        let token = this.generateToken(user.id);
+                        this.newSession(user.id, token);
+                        resolve(token);
+                    } else {
+                        reject();
+                    }
                 }
-            }
-        ).catch(() => {
-            deferred.reject();
+            ).catch(() => {
+                reject();
+            });
         });
-
-        return deferred.promise;
     }
 
     /**

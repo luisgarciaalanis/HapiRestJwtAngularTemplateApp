@@ -49,7 +49,7 @@ var User = orm.define('user', {
 User.findByEmail = (email) => {
     return new Promise((resolve, reject) => {
         User.findOne({
-            attributes: [ 'id', 'facebookUserId', 'name', 'email', 'password', 'salt', 'photoPath', 'thumbnailPath', 'role', 'status' ],
+            attributes: [ 'id', 'name', 'email', 'password', 'salt' ],
             where: {
                 email: email
             }

@@ -12,7 +12,7 @@ env('../../.env');
  * @param password
  * @returns {{id: *, name: *, email: *, password, salt}}
  */
-function generateUserData(id, name, email, password, facebookUserId) {
+function generateUserData(id, name, email, password) {
   var salt = bcrypt.genSaltSync(8);
   var secret = process.env.PASSWORD_SECRET;
   var passwordHash = bcrypt.hashSync(password + secret, salt);
@@ -37,14 +37,13 @@ function generateUserData(id, name, email, password, facebookUserId) {
 module.exports = {
   up: (queryInterface, Sequelize) => {
     var users = [];
-    users.push(generateUserData(1, 'Luis Garcia Alanis', 'luis@garcia.tv', 'secret', '10154005012763637'));
-    users.push(generateUserData(2, 'Daniel Alejandro Garcia Alanis', 'danielgarcia2@gmail.com ', 'secret', '10107275487142320'));
-    users.push(generateUserData(3, 'Slash', 'slash@fake-gmail.com ', 'secret'));
-    users.push(generateUserData(4, 'Amy Pond', 'amy@fake-gmail.com ', 'secret'));
-    users.push(generateUserData(5, 'Rory Williams', 'rory@fake-gmail.com ', 'secret'));
-    users.push(generateUserData(6, 'Tupac', 'tupac@fake-gmail.com ', 'secret'));
-    users.push(generateUserData(7, 'Axl Rose', 'axl@fake-gmail.com ', 'secret'));
-    users.push(generateUserData(8, 'Luke Skywalker', 'luke@fake-gmail.com ', 'secret'));
+    users.push(generateUserData(1, 'Luis Garcia', 'luis@fake-gmail.com', 'secret'));
+    users.push(generateUserData(2, 'Slash', 'slash@fake-gmail.com ', 'secret'));
+    users.push(generateUserData(3, 'Amy Pond', 'amy@fake-gmail.com ', 'secret'));
+    users.push(generateUserData(4, 'Rory Williams', 'rory@fake-gmail.com ', 'secret'));
+    users.push(generateUserData(5, 'Tupac', 'tupac@fake-gmail.com ', 'secret'));
+    users.push(generateUserData(6, 'Axl Rose', 'axl@fake-gmail.com ', 'secret'));
+    users.push(generateUserData(7, 'Luke Skywalker', 'luke@fake-gmail.com ', 'secret'));
 
     return queryInterface.bulkInsert('users', users, {});
   },

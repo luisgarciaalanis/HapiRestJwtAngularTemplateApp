@@ -23,12 +23,9 @@ class Routes {
      */
     initDirectories() {
         var routes = [];
-        routes.push(this.getDirectoryRouteConfig('/css/{path*}',       './public/css',     false));
-        routes.push(this.getDirectoryRouteConfig('/js/{path*}',        './public/js',      false));
-        routes.push(this.getDirectoryRouteConfig('/images/{path*}',    './public/images',  false));
-        routes.push(this.getDirectoryRouteConfig('/photos/{path*}',    './public/photos',  false));
-        routes.push(this.getDirectoryRouteConfig('/dev/{path*}',       './frontend/app',   false));
-        routes.push(this.getDirectoryRouteConfig('/dev/admin/{path*}', './frontend/admin', false));
+        routes.push(this.getDirectoryRouteConfig('/css/{path*}',      './public/css',     false));
+        routes.push(this.getDirectoryRouteConfig('/js/{path*}',       './public/js',      false));
+        routes.push(this.getDirectoryRouteConfig('/partials/{path*}', './public/partials', false));
 
         this.server.route(routes);
     }

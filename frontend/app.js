@@ -1,6 +1,6 @@
 var ngStorage = require('ngstorage');
-require('./JwtAuth');
-var myApp = angular.module('sampleApp', ['ui.router', 'JwtAuth', ngStorage.name]);
+var JwtAuth = require('./JwtAuth');
+var myApp = angular.module('sampleApp', ['ui.router', JwtAuth.name, ngStorage.name]);
 var ApplicationController = require('./controllers/ApplicationController');
 var LoginController = require('./controllers/LoginController');
 

@@ -10,10 +10,11 @@ var LoginController = function(JwtAuth, $state) {
     this.login = function(credentials) {
         this.JwtAuth.login(credentials).then(
             function() {
-
+                console.log(JwtAuth.isAuthenticated());
+                $state.go('Home', {});
             },
             function() {
-
+                console.log('Unable to login');
             }
         );
     };
